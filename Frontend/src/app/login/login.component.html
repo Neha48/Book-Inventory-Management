@@ -1,0 +1,29 @@
+<div class="card">
+    <mat-tab-group>
+        <mat-tab label="Login">     
+            <form [formGroup]="loginForm" class="card-body" (ngSubmit)="onlogin()">
+                <mat-form-field class="form-group d-md-block d-lg-block" >
+                    <input matInput type="text" placeholder="Login ID" formControlName="id">
+                </mat-form-field>
+                <mat-form-field class="form-group d-md-block d-lg-block">
+                    <input matInput type="password" placeholder="Password" formControlName="password">
+                </mat-form-field>
+                <button class="form-control btn btn-primary" mat-stroked-button type="submit">Submit</button>
+            </form>
+        </mat-tab>
+        <mat-tab label="Register">
+            <form [formGroup]="registerForm" class="card-body" (ngSubmit)="onregister()">
+                <mat-form-field class="form-group d-md-block d-lg-block" >
+                    <input matInput type="text" placeholder="Email ID" formControlName="id">
+                </mat-form-field>
+                <mat-form-field class="form-group d-md-block d-lg-block">
+                    <input matInput type="password" placeholder="Create Password" formControlName="psw">
+                </mat-form-field>
+                <mat-form-field class="form-group d-md-block d-lg-block">
+                    <input matInput type="password" placeholder="Confirm Password" formControlName="confirm">
+                </mat-form-field>
+                <button class="form-control btn btn-primary" mat-stroked-button type="submit">Submit</button>
+            </form>
+        </mat-tab>
+    </mat-tab-group>
+</div>

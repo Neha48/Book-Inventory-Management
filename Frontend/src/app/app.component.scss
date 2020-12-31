@@ -1,0 +1,17 @@
+@media print {
+    body * {
+        visibility: hidden; // part to hide at the time of print
+        -webkit-print-color-adjust: exact !important; // not necessary use         
+        //    if colors not visible
+    }
+
+    button {
+        visibility: hidden !important; // To hide 
+    }
+
+    div * {
+        visibility: visible !important; // Print only required part
+        text-align: left;
+        -webkit-print-color-adjust: exact !important;
+    }
+}

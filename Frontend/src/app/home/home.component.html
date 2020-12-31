@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-5">
+        <mat-form-field>
+            <mat-select matNativeControl placeholder="Category" formControlName="cat" (selectionChange)="onSelect($event)">
+              <mat-option value="">Select</mat-option>
+              <mat-option value="Health">Health</mat-option>
+              <mat-option value="Environment">Environment</mat-option>
+              <mat-option value="Science">Science</mat-option>
+              <mat-option value="Art">Art & Craft</mat-option>
+              <mat-option value="Business">Business</mat-option>
+              <mat-option value="Biography">Biography</mat-option>
+              <mat-option value="Finance">Finance & Money</mat-option>
+              <mat-option value="History">History</mat-option>
+              <mat-option value="Lifestyle">Lifestyle</mat-option>
+              <mat-option value="Technology">Technology</mat-option>
+              <mat-option value="Sports">Sports</mat-option>
+              <mat-option value="Psychology">Psychology</mat-option>
+              <mat-option value="Spirituality">Spirituality</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-5">
+        <mat-form-field>
+            <input type="text" matInput placeholder="Search by name, price and rating" (input)="onSearch($event)" 
+                 style="border:2px solid indianred;height: 30px;box-shadow: 2px 2px 1px 1px indianred;"/>
+        </mat-form-field>        
+    </div>
+</div>
+<div class="row cards" fxLayout="row" fxFlex.md="30" fxLayoutWrap >
+    <div *ngFor="let book of books" class="col-lg-4 col-sm-6 col-xs-12">
+    <app-card [book]='book' [main]=true></app-card></div>
+</div> 

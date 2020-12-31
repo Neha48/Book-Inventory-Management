@@ -1,0 +1,15 @@
+table{height:170px;width:30vw}
+td{padding: 3px;}
+img{
+    width:150px;height: 150px;
+}
+.example-card{min-width:fit-content;width: 25vw;min-height: fit-content;padding: 10px; margin: 10px ;}
+
+  @media only screen and (max-width: 720px) {
+    .example-card{width:min-content;height: min-content;padding:3vh 2vw; margin: 1vh 5vw; }
+  }
+  @media only screen and (min-width: 720px) {
+    // .example-card{width:fit-content;height: max-content;padding:3vh 2vw; margin: 1vh 1vw; }
+  }
+#downbtn{margin-left: 10vw;}
+  

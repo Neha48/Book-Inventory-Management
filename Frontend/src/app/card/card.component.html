@@ -1,0 +1,36 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <!-- <div mat-card-avatar class="example-header-image"></div> -->
+      <mat-card-title>{{details.title}}</mat-card-title>
+      <mat-card-subtitle>{{details.author}}</mat-card-subtitle>
+    </mat-card-header>
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <mat-card-content>
+        <table >
+            <tr>
+                <td><b>Publisher</b></td><td>{{details.publisher}}</td>
+                <td rowspan="5"><img [src]="imgUrl" src="https://th.bing.com/th/id/OIP.B4Ia6rY5ukFVq8JBUZaArQHaJe?w=149&h=191&c=7&o=5&dpr=1.5&pid=1.7" alt="Image not available"></td>
+            </tr>
+            <tr>
+                <td><b>ISBN</b></td><td>{{details.isbn}}</td>
+            </tr>
+            <tr>
+                <td><b>Category</b></td><td>{{details.category}}</td>
+            </tr>
+            <tr>
+                <td><b>Price</b></td><td>{{details.price}}</td>
+            </tr>
+            <tr>
+                <td><b>Number of hard copies</b></td><td>{{details.copies}}</td>
+            </tr>
+        </table>
+    </mat-card-content>
+    <div *ngIf="main==false else download"><mat-card-actions>
+        <button mat-stroked-button (click)="openDialog($event)" id="addbtn">Update price</button>
+      <!-- <button mat-stroked-button (click)="openDialog($event)" id="addbtn">Add copies</button>
+      <button mat-stroked-button (click)="openDialog($event)" id="rembtn">Remove copies</button> -->
+    </mat-card-actions></div>
+    <ng-template #download>
+        <button mat-stroked-button (click)="down()" id="downbtn">Download</button>
+    </ng-template>
+  </mat-card>

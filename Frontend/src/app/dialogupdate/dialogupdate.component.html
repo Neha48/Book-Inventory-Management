@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>{{title}}</h2>
+<mat-dialog-content [formGroup]="form">
+    <mat-form-field>
+        <!-- <input matInput hint="1" required formControlName="newcopies" name="copies"> -->
+        <input matInput hint="1" required formControlName="price" name="price">
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-stroked-button (click)="save()">Save</button>
+    <button mat-stroked-button (click)="cancel()">Cancel</button>
+</mat-dialog-actions>

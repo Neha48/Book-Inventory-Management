@@ -1,0 +1,60 @@
+<ul class="nav nav-tabs justify-content-end">
+  <li class="nav-item"><a class="nav-link" [routerLink]="'/view'">View</a></li>
+  <li class="nav-item"><a class="nav-link" [routerLink]="'/add'">Add</a></li>
+  <li class="nav-item"><a class="nav-link" [routerLink]="'/update'">Update</a></li>
+</ul>
+      <form [formGroup]="uploadForm" (ngSubmit)="onSubmit();uploadForm.resetForm()">
+          <fieldset>
+            <legend>Add Book</legend>
+            <div class="form-container">
+            <mat-form-field>
+              <input matInput placeholder="Title" required formControlName="ttl" name="ttl" >
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Author" required formControlName="ath" name="ath"> 
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Publisher" required formControlName="pub" name="pub">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="ISBN" required formControlName="isbn">
+              <div *ngIf="f.isbn.invalid && f.isbn.touched"><sup>*</sup>Enter valid ISBN no.</div>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-select matNativeControl placeholder="Category" formControlName="cat">
+                <mat-option value="Health">Health</mat-option>
+                <mat-option value="Environment">Environment</mat-option>
+                <mat-option value="Science">Science</mat-option>
+                <mat-option value="Art">Art & Craft</mat-option>
+                <mat-option value="Business">Business</mat-option>
+                <mat-option value="Biography">Biography</mat-option>
+                <mat-option value="Finance">Finance & Money</mat-option>
+                <mat-option value="History">History</mat-option>
+                <mat-option value="Lifestyle">Lifestyle</mat-option>
+                <mat-option value="Technology">Technology</mat-option>
+                <mat-option value="Sports">Sports</mat-option>
+                <mat-option value="Psychology">Psychology</mat-option>
+                <mat-option value="Spirituality">Spirituality</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Price" type="number" required formControlName="prc" >
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Number of copies" type="number" required formControlName="cpy">
+            </mat-form-field>
+            <!-- <mat-form-field> -->
+              <input type="file" accept="image/*" (change)="onPreview($event)"
+                style="font:bold;color:blue; height: 40px; ">
+              <img [src]="imgSrc" alt="Book Cover" style="display: none;" name="imgcvr">
+            <!-- </mat-form-field> -->
+            <div class="form-inline">
+            <button mat-stroked-button type="submit">Save</button> 
+            <button mat-stroked-button type="reset">Reset</button> 
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    <!-- </ng-template> 
+    </mat-tab>
+</mat-tab-group> -->

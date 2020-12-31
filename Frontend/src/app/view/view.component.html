@@ -1,0 +1,38 @@
+<ul class="nav nav-tabs justify-content-end">
+  <li class="nav-item"><a class="nav-link" [routerLink]="'/view'">View</a></li>
+  <li class="nav-item"><a class="nav-link" [routerLink]="'/add'">Add</a></li>
+  <li class="nav-item"><a class="nav-link" [routerLink]="'/update'">Update</a></li>
+</ul>
+  <div class="content" role="main">
+    <div style="width: 50vw;">
+      <div style="margin: 10px;">
+        <span style="font-size:x-large"><i class="fa fa-home"></i>Home</span>
+        <input type="text" placeholder="Search by name, price and rating" (input)="onSearch($event)" 
+         style="border:2px solid indianred;width: 80%;height: 30px;box-shadow: 2px 2px 1px 1px indianred;"/>
+      </div>
+      <div *ngFor="let book of books" (click)="getDetails($event)" id={{book.isbn}}
+      style="padding:5px;font-size:large;background-color: rgb(250, 209, 209);height: 40px; border: 1px solid indianred; width: 95%;">
+        <span style="float: left;vertical-align:middle;">
+          <i class="fa fa-book" style="margin: 3px;"></i>{{book.title}}</span>
+        <span style="float: right;vertical-align:middle;">{{book.price}}
+          <i class="fa fa-chevron-circle-right" style="margin: 3px;"></i></span>
+      </div>
+      <div style="margin: 10px;text-align: center;">
+        <span style="font-size:large;padding: 5px; border: 1px solid rgb(192, 165, 165);border-radius: 2px;box-shadow: 1px 2px rgb(92, 31, 31);margin:5px 20px">
+          <i class="fa fa-layer-group"></i>Sort by</span>
+        <div style="font-size:large;display: inline;padding: 5px;margin:5px 20px; border: 1px solid indianred;color:rgb(189, 26, 88)">
+        <input type="radio" name="sort" value="price" (change)="onRb($event)">Price
+        <input type="radio" name="sort" value="rat" (change)="onRb($event)">Rating</div>
+      </div>
+    </div>
+    <div style="width: 50vw;border-left: 1px solid black;padding-left: 20px;">
+      <div *ngIf="detail" style="display: inline;">
+        <app-card id="card" [book]="detail" style="display:inline-block;" (cdMsgChange)="detail"  [main]=false></app-card>
+        <!-- <div style="border: 1px solid rgb(99, 47, 47);height: 20vh;width: 100%;border-radius: 5px;"></div> -->
+        <!-- <button type="button" style="color:rgb(2, 144, 144);background-color:rgb(255, 230, 235);height: 7vh;width: 10vw;padding: 5px;font-size: large;margin: 10px"><i class="fa fa-link"></i>Link</button>
+        <button type="button" style="color:rgb(3, 144, 144);background-color:rgb(233, 230, 255);height: 7vh;width: 10vw;padding: 5px;font-size: large;margin: 10px"><i class="fa fa-share"></i>Share</button> -->
+        <!-- <button type="button" (click)="download()" style="display:inline-block;color:rgb(8, 144, 144);background-color:rgb(233, 255, 235);height: 7vh;width: 10vw;padding: 5px;font-size: large;">
+          <i class="fa fa-download"></i>Download</button> -->
+      </div>
+    </div> 
+  </div>

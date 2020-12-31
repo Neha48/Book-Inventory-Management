@@ -1,0 +1,41 @@
+<ul class="nav nav-tabs justify-content-end">
+  <li class="nav-item"><a class="nav-link" [routerLink]="'/view'">View</a></li>
+  <li class="nav-item"><a class="nav-link" [routerLink]="'/add'">Add</a></li>
+  <li class="nav-item"><a class="nav-link" [routerLink]="'/update'">Update</a></li>
+</ul>
+<mat-tab-group>
+ <mat-tab label="Update Price">
+    <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="form-container"> 
+     <mat-form-field appearance="fill">
+       <input style=" display: inline-flex;" matInput placeholder="Enter book title" formControlName="btitle">
+       <span style="display: inline;margin-left:-100px ;"><button mat-button type="submit" >
+         <i class="fa fa-search" style="font-size: large;display: inline;color:rgb(63, 37, 175);"></i></button></span>
+     </mat-form-field>
+    </form>
+    <div fxLayout="row" fxFlex.md="30" fxLayoutWrap >
+        <div *ngFor="let book of updata" class="cards">
+        <app-card [book]='book' [main]=false></app-card></div>
+    </div> 
+ </mat-tab>
+ <mat-tab label="Delete Book">
+   <form [formGroup]="deleteForm" (ngSubmit)="onDelete()" class="form-container">
+     <mat-form-field appearance="fill">
+       <input style=" display: inline;" matInput placeholder="Enter book title" formControlName="btitle">
+       <button style="width: min-content;display: inline;margin-left:-100px ;color:rgb(63, 37, 175);" mat-button type="submit" >
+         <i class="fa fa-search" style="font-size: large;"></i>
+        </button>
+     </mat-form-field>
+   </form> 
+   <div *ngFor="let book of dedata" class="cards" >
+     <mat-card [ngStyle]="{'width':'300'+'px'}">
+       <mat-card-header>
+         <mat-card-title>{{book.title}}</mat-card-title>
+         <mat-card-subtitle>{{book.author}}</mat-card-subtitle>
+       </mat-card-header>
+       <mat-card-actions>
+         <button mat-stroked-button (click)="openDialog($event)" id="delbtn">Delete</button>
+       </mat-card-actions>
+     </mat-card>
+   </div>
+ </mat-tab>
+</mat-tab-group>
